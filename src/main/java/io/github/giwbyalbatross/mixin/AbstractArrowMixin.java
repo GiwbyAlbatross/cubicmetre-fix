@@ -28,12 +28,13 @@ public abstract class AbstractArrowMixin extends AbstractArrow {
       final ItemStack pickupItemStack,
       final @Nullable ItemStack firedFromWeapon
    ) {
+	  // solely to stop VSCode reporting errors which likely would never surface
       super(type, mob.getX(), mob.getEyeY() - 0.1F, mob.getZ(), level, pickupItemStack, firedFromWeapon);
       this.setOwner(mob);
    }
 
-	@Inject(at = @At("HEAD"), method = "findHitEntities")
-	private Collection<EntityHitResult> findHitEntitiesOverride(final Vec3 from, final Vec3 to, CallbackInfo info) {
+	@Inject(at = @At("HEAD"), method = "findHitEntities", cancellable = true)
+	private void findHitEntitiesOverride(final Vec3 from, final Vec3 to, CallbackInfoReturnable<Collection<EntityHitResult>> info) {
 		EntityHitResult ehr =  ProjectileUtil.getEntityHitResult(
         	 this.level(), this, from, to, this.getBoundingBox().expandTowards(this.getDeltaMovement()).inflate(1.0), this::canHitEntity
       	);
@@ -41,6 +42,6 @@ public abstract class AbstractArrowMixin extends AbstractArrow {
 
 		r.add(ehr);
 
-		return r;
+		info.setReturnValue(r);
 	}
 }
