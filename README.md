@@ -3,7 +3,7 @@
 ## Purpose/functionality
 Very simply replaces a function which should bring back a bunch of cool contraptions that worked in minecraft <=1.21.10. See cubicmetre's video:
 
-<iframe width="959" height="539" src="https://www.youtube.com/embed/2SaD3FYNfEs" title="The Change that Broke the Cannon&#39;s Back - Cubicmetre" frameborder="0" allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![cubicmetre thumbnail, click on it to be taken to youtube](https://img.youtube.com/vi/2SaD3FYNfEs/0.jpg)](https://www.youtube.com/watch?v=2SaD3FYNfEs)
 
 ## Setup
 
