@@ -1,0 +1,38 @@
+{
+	"schemaVersion": 1,
+	"id": "cubicmetre-fix",
+	"version": "${version}",
+	"name": "Projectile EntityHitResult Fix (cubicmetre fix)",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/cubicmetre-fix/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"io.github.giwbyalbatross.CubicmetreFix"
+		],
+		"client": [
+			"io.github.giwbyalbatross.client.ProjectileEntityHitResultFixCubicmetreFixClient"
+		]
+	},
+	"mixins": [
+		"cubicmetre-fix.mixins.json",
+		{
+			"config": "cubicmetre-fix.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": ">=1.21.11",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
