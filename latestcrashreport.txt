@@ -3,9 +3,9 @@
 CLIENT:
 
 ---- Minecraft Crash Report ----
-// I let you down. Sorry :(
+// But it works on my machine.
 
-Time: 2026-07-15 08:56:26
+Time: 2026-07-15 09:12:57
 Description: Unexpected error
 
 java.lang.RuntimeException: Mixin transformation of net.minecraft.entity.projectile.ProjectileUtil failed
@@ -17,9 +17,8 @@ java.lang.RuntimeException: Mixin transformation of net.minecraft.entity.project
 	at knot//MC//net.minecraft.client.network.ClientPlayerEntity.getCrosshairTarget(ClientPlayerEntity.java:1391)
 	at knot//MC//net.minecraft.client.network.ClientPlayerEntity.getCrosshairTarget(ClientPlayerEntity.java:1365)
 	at knot//MC//net.minecraft.client.render.GameRenderer.updateCrosshairTarget(GameRenderer.java:339)
-	at knot//MC//net.minecraft.client.render.GameRenderer.renderWorld(GameRenderer.java:739)
-	at knot//MC//net.minecraft.client.render.GameRenderer.render(GameRenderer.java:497)
-	at knot//MC//net.minecraft.client.MinecraftClient.render(MinecraftClient.java:1393)
+	at knot//MC//net.minecraft.client.MinecraftClient.tick(MinecraftClient.java:1883)
+	at knot//MC//net.minecraft.client.MinecraftClient.render(MinecraftClient.java:1354)
 	at knot//MC//net.minecraft.client.MinecraftClient.run(MinecraftClient.java:966)
 	at knot//net.minecraft.client.main.Main.main(Main.java:250)
 	at app//net.fabricmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:514)
@@ -33,24 +32,27 @@ Caused by: org.spongepowered.asm.mixin.transformer.throwables.MixinTransformerEr
 	at app//org.spongepowered.asm.mixin.transformer.MixinTransformer.transformClass(MixinTransformer.java:237)
 	at app//org.spongepowered.asm.mixin.transformer.MixinTransformer.transformClassBytes(MixinTransformer.java:202)
 	at app//net.fabricmc.loader.impl.launch.knot.KnotClassDelegate.getPostMixinClassByteArray(KnotClassDelegate.java:435)
-	... 18 more
+	... 17 more
 Caused by: org.spongepowered.asm.mixin.throwables.MixinApplyError: Mixin [cubicmetre-fix.mixins.json:ProjectileUtilsMixin from mod cubicmetre-fix] from phase [DEFAULT] in config [cubicmetre-fix.mixins.json] FAILED during APPLY
 	at app//org.spongepowered.asm.mixin.transformer.MixinProcessor.handleMixinError(MixinProcessor.java:685)
 	at app//org.spongepowered.asm.mixin.transformer.MixinProcessor.handleMixinApplyError(MixinProcessor.java:636)
 	at app//org.spongepowered.asm.mixin.transformer.MixinProcessor.applyMixins(MixinProcessor.java:367)
-	... 21 more
-Caused by: org.spongepowered.asm.mixin.transformer.throwables.InvalidMixinException: Mixin cubicmetre-fix.mixins.json:ProjectileUtilsMixin from mod cubicmetre-fix contains non-private static method getManyEntityHitResultOverride(Lnet/minecraft/world/World;Lnet/minecraft/entity/Entity;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Box;Ljava/util/function/Predicate;FLnet/minecraft/block/Block;ZLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V [ -> MAIN Applicator Phase -> cubicmetre-fix.mixins.json:ProjectileUtilsMixin from mod cubicmetre-fix -> Apply Methods -> (Lnet/minecraft/world/World;Lnet/minecraft/entity/Entity;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Box;Ljava/util/function/Predicate;FLnet/minecraft/block/Block;ZLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V:handler$zza000$cubicmetre-fix$getManyEntityHitResultOverride]
-	at app//org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.checkMethodVisibility(MixinApplicatorStandard.java:861)
-	at app//org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.applyNormalMethod(MixinApplicatorStandard.java:524)
-	at app//org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.applyMethods(MixinApplicatorStandard.java:507)
-	at app//org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.lambda$runApplicatorPass$0(MixinApplicatorStandard.java:295)
+	... 20 more
+Caused by: org.spongepowered.asm.mixin.injection.throwables.InvalidInjectionException: Invalid descriptor on cubicmetre-fix.mixins.json:ProjectileUtilsMixin from mod cubicmetre-fix->@Inject::getManyEntityHitResultOverride(Lnet/minecraft/world/World;Lnet/minecraft/entity/Entity;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Box;Ljava/util/function/Predicate;FLnet/minecraft/block/Block;ZLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V! Expected (Lnet/minecraft/world/World;Lnet/minecraft/entity/Entity;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Box;Ljava/util/function/Predicate;ZLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V but found (Lnet/minecraft/world/World;Lnet/minecraft/entity/Entity;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Box;Ljava/util/function/Predicate;FLnet/minecraft/block/Block;ZLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V [INJECT_APPLY Applicator Phase -> cubicmetre-fix.mixins.json:ProjectileUtilsMixin from mod cubicmetre-fix -> Apply Injections ->  -> Inject -> cubicmetre-fix.mixins.json:ProjectileUtilsMixin from mod cubicmetre-fix->@Inject::getManyEntityHitResultOverride(Lnet/minecraft/world/World;Lnet/minecraft/entity/Entity;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Box;Ljava/util/function/Predicate;FLnet/minecraft/block/Block;ZLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V]
+	at app//org.spongepowered.asm.mixin.injection.callback.CallbackInjector.inject(CallbackInjector.java:563)
+	at app//org.spongepowered.asm.mixin.injection.callback.CallbackInjector.inject(CallbackInjector.java:493)
+	at app//org.spongepowered.asm.mixin.injection.code.Injector.inject(Injector.java:284)
+	at app//org.spongepowered.asm.mixin.injection.struct.InjectionInfo.inject(InjectionInfo.java:508)
+	at app//org.spongepowered.asm.mixin.transformer.MixinTargetContext.applyInjections(MixinTargetContext.java:1470)
+	at app//org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.applyInjections(MixinApplicatorStandard.java:832)
+	at app//org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.lambda$runApplicatorPass$7(MixinApplicatorStandard.java:362)
 	at app//org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.processMixins(MixinApplicatorStandard.java:381)
-	at app//org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.runApplicatorPass(MixinApplicatorStandard.java:283)
+	at app//org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.runApplicatorPass(MixinApplicatorStandard.java:360)
 	at app//org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.apply(MixinApplicatorStandard.java:240)
 	at app//org.spongepowered.asm.mixin.transformer.TargetClassContext.apply(TargetClassContext.java:437)
 	at app//org.spongepowered.asm.mixin.transformer.TargetClassContext.applyMixins(TargetClassContext.java:418)
 	at app//org.spongepowered.asm.mixin.transformer.MixinProcessor.applyMixins(MixinProcessor.java:351)
-	... 21 more
+	... 20 more
 
 
 A detailed walkthrough of the error, its code path and all known details is as follows:
@@ -67,14 +69,13 @@ Stacktrace:
 	at knot//MC//net.minecraft.client.network.ClientPlayerEntity.getCrosshairTarget(ClientPlayerEntity.java:1391)
 	at knot//MC//net.minecraft.client.network.ClientPlayerEntity.getCrosshairTarget(ClientPlayerEntity.java:1365)
 	at knot//MC//net.minecraft.client.render.GameRenderer.updateCrosshairTarget(GameRenderer.java:339)
-	at knot//MC//net.minecraft.client.render.GameRenderer.renderWorld(GameRenderer.java:739)
 
 -- Uptime --
 Details:
-	JVM uptime: 26.145s
-	Wall uptime: 20.660s
-	High-res time: 19.755s
-	Client ticks: 354 ticks / 17.700s
+	JVM uptime: 15.721s
+	Wall uptime: 10.364s
+	High-res time: 9.490s
+	Client ticks: 152 ticks / 7.600s
 Stacktrace:
 	at knot//MC//net.minecraft.client.MinecraftClient.addDetailsToCrashReport(MinecraftClient.java:2477)
 	at knot//MC//net.minecraft.client.MinecraftClient.printCrashReport(MinecraftClient.java:1035)
@@ -93,7 +94,7 @@ Details:
 	Chunk stats: 729, 0
 	Level dimension: minecraft:overworld
 	Level spawn location: World: (0,56,0), Section: (at 0,8,0 in 0,3,0; chunk contains blocks 0,-64,0 to 15,319,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
-	Level time: 27433 game time, 2461 day time
+	Level time: 27434 game time, 2462 day time
 	Server brand: fabric
 	Server type: Integrated singleplayer server
 	Tracked entity count: 1
@@ -112,7 +113,7 @@ Details:
 	Operating System: Mac OS X (aarch64) version 15.7.7
 	Java Version: 21.0.7, Microsoft
 	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), Microsoft
-	Memory: 379981864 bytes (362 MiB) / 799014912 bytes (762 MiB) up to 4294967296 bytes (4096 MiB)
+	Memory: 142463144 bytes (135 MiB) / 549453824 bytes (524 MiB) up to 4294967296 bytes (4096 MiB)
 	CPUs: 8
 	Processor Vendor: Apple Inc.
 	Processor Name: Apple M1
@@ -131,14 +132,14 @@ Details:
 	Memory slot #0 clockSpeed (GHz): 0.00
 	Memory slot #0 type: unknown
 	Virtual memory max (MiB): 13312.00
-	Virtual memory used (MiB): 11393.28
+	Virtual memory used (MiB): 11224.70
 	Swap memory total (MiB): 5120.00
-	Swap memory used (MiB): 4439.44
+	Swap memory used (MiB): 4334.19
 	Space in storage for jna.tmpdir (MiB): <path not set>
 	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): <path not set>
 	Space in storage for io.netty.native.workdir (MiB): <path not set>
-	Space in storage for java.io.tmpdir (MiB): available: 9607.81, total: 233752.44
-	Space in storage for workdir (MiB): available: 9607.81, total: 233752.44
+	Space in storage for java.io.tmpdir (MiB): available: 9614.27, total: 233752.44
+	Space in storage for workdir (MiB): available: 9614.27, total: 233752.44
 	JVM Flags: 2 total; -Xms512m -Xmx4096m
 	Debug Flags: 0 total; 
 	Fabric Mods: 
@@ -198,7 +199,7 @@ Details:
 	Launcher name: PrismLauncher
 	Backend library: LWJGL version 3.3.3-snapshot
 	Backend API: Apple M1 GL version 4.1 Metal - 89.4, Apple
-	Window size: 1331x968
+	Window size: 854x480
 	GFLW Platform: cocoa
 	Render Extensions: GL_EXT_texture_filter_anisotropic
 	GL debug messages: <debugging unavailable>
@@ -227,9 +228,9 @@ Details:
 SERVER:
 
 ---- Minecraft Crash Report ----
-// Everything's going to plan. No, really, that was supposed to happen.
+// Don't do that.
 
-Time: 2026-07-15 08:56:26
+Time: 2026-07-15 09:12:57
 Description: Ticking entity
 
 java.lang.RuntimeException: Mixin transformation of net.minecraft.entity.projectile.ProjectileUtil failed
@@ -265,13 +266,16 @@ Caused by: org.spongepowered.asm.mixin.throwables.MixinApplyError: Mixin [cubicm
 	at app//org.spongepowered.asm.mixin.transformer.MixinProcessor.handleMixinApplyError(MixinProcessor.java:636)
 	at app//org.spongepowered.asm.mixin.transformer.MixinProcessor.applyMixins(MixinProcessor.java:367)
 	... 23 more
-Caused by: org.spongepowered.asm.mixin.transformer.throwables.InvalidMixinException: Mixin cubicmetre-fix.mixins.json:ProjectileUtilsMixin from mod cubicmetre-fix contains non-private static method getManyEntityHitResultOverride(Lnet/minecraft/world/World;Lnet/minecraft/entity/Entity;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Box;Ljava/util/function/Predicate;FLnet/minecraft/block/Block;ZLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V [ -> MAIN Applicator Phase -> cubicmetre-fix.mixins.json:ProjectileUtilsMixin from mod cubicmetre-fix -> Apply Methods -> (Lnet/minecraft/world/World;Lnet/minecraft/entity/Entity;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Box;Ljava/util/function/Predicate;FLnet/minecraft/block/Block;ZLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V:handler$zza000$cubicmetre-fix$getManyEntityHitResultOverride]
-	at app//org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.checkMethodVisibility(MixinApplicatorStandard.java:861)
-	at app//org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.applyNormalMethod(MixinApplicatorStandard.java:524)
-	at app//org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.applyMethods(MixinApplicatorStandard.java:507)
-	at app//org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.lambda$runApplicatorPass$0(MixinApplicatorStandard.java:295)
+Caused by: org.spongepowered.asm.mixin.injection.throwables.InvalidInjectionException: Invalid descriptor on cubicmetre-fix.mixins.json:ProjectileUtilsMixin from mod cubicmetre-fix->@Inject::getManyEntityHitResultOverride(Lnet/minecraft/world/World;Lnet/minecraft/entity/Entity;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Box;Ljava/util/function/Predicate;FLnet/minecraft/block/Block;ZLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V! Expected (Lnet/minecraft/world/World;Lnet/minecraft/entity/Entity;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Box;Ljava/util/function/Predicate;ZLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V but found (Lnet/minecraft/world/World;Lnet/minecraft/entity/Entity;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Box;Ljava/util/function/Predicate;FLnet/minecraft/block/Block;ZLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V [INJECT_APPLY Applicator Phase -> cubicmetre-fix.mixins.json:ProjectileUtilsMixin from mod cubicmetre-fix -> Apply Injections ->  -> Inject -> cubicmetre-fix.mixins.json:ProjectileUtilsMixin from mod cubicmetre-fix->@Inject::getManyEntityHitResultOverride(Lnet/minecraft/world/World;Lnet/minecraft/entity/Entity;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Box;Ljava/util/function/Predicate;FLnet/minecraft/block/Block;ZLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V]
+	at app//org.spongepowered.asm.mixin.injection.callback.CallbackInjector.inject(CallbackInjector.java:563)
+	at app//org.spongepowered.asm.mixin.injection.callback.CallbackInjector.inject(CallbackInjector.java:493)
+	at app//org.spongepowered.asm.mixin.injection.code.Injector.inject(Injector.java:284)
+	at app//org.spongepowered.asm.mixin.injection.struct.InjectionInfo.inject(InjectionInfo.java:508)
+	at app//org.spongepowered.asm.mixin.transformer.MixinTargetContext.applyInjections(MixinTargetContext.java:1470)
+	at app//org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.applyInjections(MixinApplicatorStandard.java:832)
+	at app//org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.lambda$runApplicatorPass$7(MixinApplicatorStandard.java:362)
 	at app//org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.processMixins(MixinApplicatorStandard.java:381)
-	at app//org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.runApplicatorPass(MixinApplicatorStandard.java:283)
+	at app//org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.runApplicatorPass(MixinApplicatorStandard.java:360)
 	at app//org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.apply(MixinApplicatorStandard.java:240)
 	at app//org.spongepowered.asm.mixin.transformer.TargetClassContext.apply(TargetClassContext.java:437)
 	at app//org.spongepowered.asm.mixin.transformer.TargetClassContext.applyMixins(TargetClassContext.java:418)
@@ -328,10 +332,10 @@ Details:
 	Chunk stats: 841
 	Level dimension: minecraft:overworld
 	Level spawn location: World: (0,56,0), Section: (at 0,8,0 in 0,3,0; chunk contains blocks 0,-64,0 to 15,319,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
-	Level time: 27434 game time, 2462 day time
+	Level time: 27435 game time, 2463 day time
 	Level name: redirection-test-1
 	Level game mode: Game mode: creative (ID 1). Hardcore: false. Commands: true
-	Level weather: Rain time: 681 (now: true), thunder time: 5057 (now: true)
+	Level weather: Rain time: 680 (now: true), thunder time: 5056 (now: true)
 	Known server brands: fabric
 	Removed feature flags: 
 	Level was modded: true
@@ -355,7 +359,7 @@ Details:
 	Operating System: Mac OS X (aarch64) version 15.7.7
 	Java Version: 21.0.7, Microsoft
 	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), Microsoft
-	Memory: 394449144 bytes (376 MiB) / 799014912 bytes (762 MiB) up to 4294967296 bytes (4096 MiB)
+	Memory: 159458832 bytes (152 MiB) / 549453824 bytes (524 MiB) up to 4294967296 bytes (4096 MiB)
 	CPUs: 8
 	Processor Vendor: Apple Inc.
 	Processor Name: Apple M1
@@ -374,14 +378,14 @@ Details:
 	Memory slot #0 clockSpeed (GHz): 0.00
 	Memory slot #0 type: unknown
 	Virtual memory max (MiB): 13312.00
-	Virtual memory used (MiB): 11392.70
+	Virtual memory used (MiB): 11236.22
 	Swap memory total (MiB): 5120.00
-	Swap memory used (MiB): 4439.44
+	Swap memory used (MiB): 4334.19
 	Space in storage for jna.tmpdir (MiB): <path not set>
 	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): <path not set>
 	Space in storage for io.netty.native.workdir (MiB): <path not set>
-	Space in storage for java.io.tmpdir (MiB): available: 9607.77, total: 233752.44
-	Space in storage for workdir (MiB): available: 9607.77, total: 233752.44
+	Space in storage for java.io.tmpdir (MiB): available: 9614.29, total: 233752.44
+	Space in storage for workdir (MiB): available: 9614.29, total: 233752.44
 	JVM Flags: 2 total; -Xms512m -Xmx4096m
 	Debug Flags: 0 total; 
 	Fabric Mods: 
@@ -448,4 +452,3 @@ Details:
 	Type: Integrated Server (map_client.txt)
 	Is Modded: Definitely; Client brand changed to 'fabric'; Server brand changed to 'fabric'
 	Launched Version: 1.21.11
-

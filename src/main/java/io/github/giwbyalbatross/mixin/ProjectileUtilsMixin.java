@@ -24,7 +24,7 @@ class ProjectileUtilsMixin {
 
     //public static Collection<EntityHitResult> getManyEntityHitResult(Level level, Entity entity, Vec3 vec3, Vec3 vec32, AABB aABB, Predicate<Entity> predicate, float f, Block block, boolean bl)
     @Inject(at = @At("HEAD"), method = "getManyEntityHitResult", cancellable = true)
-    static void getManyEntityHitResultOverride(
+    private static void getManyEntityHitResultOverride(
         Level level, Entity entity, Vec3 vec3, Vec3 vec32, AABB aabb,
         Predicate<Entity> predicate, float f, Block block, boolean includeSelf,
         CallbackInfoReturnable<Collection<EntityHitResult>> cir
