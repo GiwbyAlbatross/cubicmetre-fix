@@ -3,7 +3,8 @@
 	"package": "io.github.giwbyalbatross.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"AbstractArrowMixin"
+		"AbstractArrowMixin",
+		"ProjectileUtilsMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
